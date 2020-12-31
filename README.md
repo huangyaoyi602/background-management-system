@@ -2,14 +2,20 @@
  * @Author: hyy
  * @Date: 2020-12-29 16:58:01
  * @LastEditors: hyy
- * @LastEditTime: 2020-12-29 17:07:28
+ * @LastEditTime: 2020-12-30 11:34:37
 -->
+
+##### 项目运行
+
+1. 安装依赖：  ```yarn ```
+2. 开发运行： ```yarn start```
+3. 构建运行：  ```yarn build```
 #### 手动搭建项目
 
 1. ```mkdir background-management-system```
 2. ```npm init -y```
-3. ```yarn add typescript -g```
-4. ```tsc --init```
+3. ```npm install typescript -g```
+4. ```tsc --init``` 
 5. 编写config文件夹的webpack配置文件
 6. 新建src/index.html
 7. 安装插件：
@@ -34,3 +40,7 @@
 11. 配置eslintrc.json
 12. tsconfig.json 配置jsx
 13. src/index.tsx 引入路由
+14. 配置状态管理mobx 
+    ```
+        yarn add mobx mobx-react-lite
+    ```
