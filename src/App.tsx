@@ -1,29 +1,27 @@
-import React,{FC} from 'react'
-import {Provider,rootStore} from './models/Root'
-import {Route,Link,Redirect,Switch} from 'react-router-dom'
+import React from 'react'
+import {Route,Router,Redirect} from 'react-router'
+import {Link,Switch} from 'react-router-dom'
 import {ConnectedRouter} from 'connected-react-router'
+import { observer } from "mobx-react";
 
-import history from './history'
+import {history} from './stores/router'
 import Home from './pages/Home'
 import {StoresContext,stores} from './stores'
+import { Provider } from 'mobx-react'
 
 
-
-
-
-const App:FC = ()=>{
+const App = ()=>{
   return(
+    <Provider {...stores}>
    <StoresContext.Provider value={stores}>
-      
-    <ConnectedRouter history={history}>
-      <Home/>
-
+    <Router history={history}>      
       <Switch>
-        <Route path="/"/>
+        <Route path="/" component={Home} />
       </Switch>
-    </ConnectedRouter>
+    </Router>
     </StoresContext.Provider>
+    </Provider>
   )
-}
+} 
 
 export default App

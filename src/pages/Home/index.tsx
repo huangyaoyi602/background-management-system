@@ -1,10 +1,14 @@
 import React from 'react'
-import { observer } from "mobx-react";
 import {useTestStore} from '../../stores'
+import {observer} from 'mobx-react'
+// import {TestStore} from '../../stores/test'
 
-
- function Home() {
-   const {test,getArticle,setArticle} = useTestStore()
+const Home = ()=> {
+   const {count,test,getArticle,setArticle,addCount} = useTestStore()
+  //  console.log(getArticle());
+  console.log(count,test);
+  
+   
   return (
     <>
     <div>
@@ -13,10 +17,10 @@ import {useTestStore} from '../../stores'
       <span>{test.title}</span>
       <div>{test.article}</div>
     </div>
-    <input type="text" onChange={(e)=>{setArticle(e.target.value)}} />
-    <input type="button" onClick={()=>{ console.log(getArticle());
-     }} />
+    <input type="text" onChange={(e)=>setArticle(e.target.value)} />
+    <input type="button" onClick={()=>{ console.log(getArticle)}} />
+    <button onClick={addCount}>{count}</button>
     </>
   )
 }
-export default Home
+export default observer(Home)

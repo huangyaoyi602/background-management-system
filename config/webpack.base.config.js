@@ -2,7 +2,7 @@
  * @Author: hyy
  * @Date: 2020-12-29 14:49:55
  * @LastEditors: hyy
- * @LastEditTime: 2020-12-29 15:49:29
+ * @LastEditTime: 2021-01-06 16:07:24
  */
 // 清理产出目录的插件
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
