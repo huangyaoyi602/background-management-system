@@ -1,26 +1,33 @@
+/*
+ * @Author: hyy
+ * @Date: 2020-12-30 09:01:59
+ * @LastEditors: hyy
+ * @LastEditTime: 2021-02-23 09:52:29
+ */
 import React from 'react'
-import {useTestStore} from '../../stores'
-import {observer} from 'mobx-react'
-// import {TestStore} from '../../stores/test'
+import {useObserver} from 'mobx-react-lite'
+import {useStore} from '../../store'
 
-const Home = ()=> {
-   const {count,test,getArticle,setArticle,addCount} = useTestStore()
-  //  console.log(getArticle());
-  console.log(count,test);
+const Home:React.FC = ()=> {
+  const {testStore} = useStore()
+    
+   
+ 
   
    
-  return (
-    <>
+  return useObserver(()=>{
+    const {name,num,data,datas,setNum} = testStore
+    const handleClick = ()=>{
+   console.log('event');
+  setNum(1)
+ }
+    return (<>
     <div>
-      <span>{test.name}</span>
-      <span>{test.time}</span>
-      <span>{test.title}</span>
-      <div>{test.article}</div>
+      <div >{name}</div>
+      <div onClick={()=>{handleClick()}}>{num}</div>
+      <div>{datas.length}</div>
     </div>
-    <input type="text" onChange={(e)=>setArticle(e.target.value)} />
-    <input type="button" onClick={()=>{ console.log(getArticle)}} />
-    <button onClick={addCount}>{count}</button>
-    </>
-  )
+    </>)
+  })
 }
-export default observer(Home)
+export default Home
